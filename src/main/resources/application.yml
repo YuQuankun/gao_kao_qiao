@@ -1,0 +1,30 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /back-end
+
+spring:
+  profiles.active: dev
+  application.name: idig-back-end
+  jackson:
+    # 指定日期格式化时区，比如America/Los_Angeles或者GMT+10
+    time-zone: GMT+8
+    # 日期格式字符串或标准日期格式类全限定名，只控制java.util.Date的序列化format
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: ALWAYS
+
+logging:
+  config: classpath:logback-spring.xml
+
+mybatis:
+  mapper-locations: ["classpath:mapper/**/*.xml", "classpath*:mapper/security/*.xml"]
+  configuration:
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  page-size-zero: true
+  params: countSql

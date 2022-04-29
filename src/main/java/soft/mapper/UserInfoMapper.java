@@ -1,9 +1,9 @@
-package mapper;
+package soft.mapper;
 
 
 import org.apache.ibatis.annotations.Mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import pojo.model.UserInfo;
+import soft.pojo.model.UserInfo;
 import java.util.List;
 
 /**

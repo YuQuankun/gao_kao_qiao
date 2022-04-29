@@ -1,4 +1,4 @@
-package constant;
+package soft.constant;
 
 /**
  * @author kun_mi

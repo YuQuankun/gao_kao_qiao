@@ -1,9 +1,9 @@
-package util;
+package soft.util;
 
 
-import common.ApiResponse;
-import constant.ErrorCode;
-import constant.ResponseConstant;
+import soft.common.ApiResponse;
+import soft.constant.ErrorCode;
+import soft.constant.ResponseConstant;
 import org.springframework.stereotype.Component;
 
 /**

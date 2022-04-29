@@ -1,26 +1,29 @@
-package service.Impl;
+package soft.service.Impl;
 
-import common.ApiResponse;
-import constant.ErrorCode;
-import mapper.UserInfoMapper;
+import org.springframework.stereotype.Service;
+import soft.common.ApiResponse;
+import soft.constant.ErrorCode;
+import soft.mapper.UserInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import pojo.model.UserInfo;
-import service.IUserInfoService;
-import util.ResponseUtil;
+import soft.pojo.model.UserInfo;
+import soft.service.IUserInfoService;
+import soft.util.ResponseUtil;
 
 import java.util.List;
 
 /**
  * @author kun_mi
  */
-public class UserInfoImpl  extends ServiceImpl<UserInfoMapper,UserInfo> implements IUserInfoService, ErrorCode {
+@Service
+public class UserInfoImpl  implements IUserInfoService, ErrorCode {
 
     @Autowired
     private UserInfoMapper userInfoMapper;
 
     @Override
     public ApiResponse<List<UserInfo>> getInfo() {
+
         return ResponseUtil.success(userInfoMapper.selectInfo());
     }
 

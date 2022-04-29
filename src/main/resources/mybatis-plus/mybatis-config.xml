@@ -16,7 +16,7 @@
     <typeAlias alias="arrayList" type="java.util.ArrayList"/>
     <typeAlias alias="linkedList" type="java.util.LinkedList"/>
 
-    <typeAlias alias="UserInfo" type="pojo.model.UserInfo"/>
+    <typeAlias alias="UserInfo" type="soft.pojo.model.UserInfo"/>
 
 
   </typeAliases>

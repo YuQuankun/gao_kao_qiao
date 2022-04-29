@@ -1,4 +1,4 @@
-package pojo.param;
+package soft.pojo.param;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

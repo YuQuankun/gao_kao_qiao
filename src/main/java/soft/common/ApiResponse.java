@@ -1,9 +1,9 @@
-package common;
+package soft.common;
 
 
-import constant.ResponseConstant;
-import execption.BaseException;
-import handler.MessageSourceHandler;
+import soft.constant.ResponseConstant;
+import soft.execption.BaseException;
+import soft.handler.MessageSourceHandler;
 import lombok.Data;
 
 /**

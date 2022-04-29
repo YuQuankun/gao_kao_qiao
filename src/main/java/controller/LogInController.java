@@ -1,10 +1,11 @@
 package controller;
 
+import common.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
+import pojo.model.UserInfo;
+import service.IUserInfoService;
+import util.ResponseUtil;
 import java.util.List;
 
 /**
@@ -15,10 +16,11 @@ import java.util.List;
 
 public class LogInController {
 
+    @Autowired
+    private IUserInfoService iUserInfoService;
 
     @Autowired
-    public List<Integer> getInfo(){
-        List<Integer> example = new ArrayList<>();
-        return example;
+    public ApiResponse<List<UserInfo>> getInfo(){
+        return iUserInfoService.getInfo();
     }
 }

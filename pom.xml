@@ -89,6 +89,7 @@
         <dependency>
             <groupId>org.xmlunit</groupId>
             <artifactId>xmlunit-core</artifactId>
+            <version>2.8.3</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -102,14 +103,19 @@
         </dependency>
         <dependency>
             <groupId>io.swagger</groupId>
-            <artifactId>swagger-project</artifactId>
-            <version>1.5.22</version>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.17</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.6.3</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>2.1.4</version>
         </dependency>
 
     </dependencies>

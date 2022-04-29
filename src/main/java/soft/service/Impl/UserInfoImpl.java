@@ -5,7 +5,6 @@ import soft.common.ApiResponse;
 import soft.constant.ErrorCode;
 import soft.mapper.UserInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import soft.pojo.model.UserInfo;
 import soft.service.IUserInfoService;
 import soft.util.ResponseUtil;

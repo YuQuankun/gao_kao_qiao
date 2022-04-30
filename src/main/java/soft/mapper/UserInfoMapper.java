@@ -12,5 +12,9 @@ import java.util.List;
 @Mapper
 public interface UserInfoMapper extends BaseMapper<UserInfo>{
 
+    /**
+     *
+     * @return
+     */
     List<UserInfo> selectInfo();
 }

@@ -24,11 +24,11 @@ public class UserInfo {
     @TableField
     private String userName;
 
-    /** 用户类型   -教师 -学生 -家长 */
+    /** 用户类型   - 1大学教师 -2高中教师 -3学生 -4家长 */
     @TableField
-    private String userType;
+    private Integer userType;
 
-    /** 用户Id */
+    /** 用户Id 用于关联明细表 */
     @TableField
     private Long userId;
 
@@ -40,6 +40,7 @@ public class UserInfo {
     @TableField
     private String password;
 
+    /** 用户头像存储url */
     @TableField
     private String logoUrl;
 }

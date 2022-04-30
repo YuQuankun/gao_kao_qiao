@@ -3,7 +3,6 @@ package soft.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import soft.common.ApiResponse;
-import org.springframework.stereotype.Service;
 import soft.pojo.model.UserInfo;
 
 import java.util.List;
@@ -12,9 +11,9 @@ import java.util.List;
  * @author kun_mi
  */
 
-public interface IUserInfoService {
+public interface IUserInfoService extends IService<UserInfo>{
 
-    //extends IService<UserInfo>
+    //
     /**
      * 获取用户信息
      * @return

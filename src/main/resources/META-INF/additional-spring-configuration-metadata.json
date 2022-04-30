@@ -9,5 +9,10 @@
       "name": "spring.datasource.mysql.jdbc-url",
       "type": "java.lang.String",
       "description": "Description for spring.datasource.mysql.jdbc-url."
+    },
+    {
+      "name": "spring.datasource.mysql.password",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.mysql.password."
     }
   ] }

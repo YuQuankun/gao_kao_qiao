@@ -1,5 +1,6 @@
 package soft.pojo.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -20,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class StudentInfo {
 
     /** 主键*/
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /** 姓名 */
@@ -41,10 +42,10 @@ public class StudentInfo {
 
     /** 认证状态 0-未认证  1-认证通过 */
     @TableField
-    private Integer identifyState;
+    private Integer identfyState;
 
     /** 认证教师id */
     @TableField
-    private Integer identifyTeacherId;
+    private Integer identfyTeacherId;
 
 }

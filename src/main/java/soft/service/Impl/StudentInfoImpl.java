@@ -3,6 +3,7 @@ package soft.service.Impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 import soft.common.ApiResponse;
@@ -22,6 +23,7 @@ public class StudentInfoImpl extends ServiceImpl<StudentInfoMapper,StudentInfo> 
 
     private static final Logger LOG = LoggerFactory.getLogger(StudentInfoImpl.class);
 
+
     private TransactionTemplate transactionTemplate;
 
     private StudentInfoMapper studentInfoMapper;
@@ -38,8 +40,8 @@ public class StudentInfoImpl extends ServiceImpl<StudentInfoMapper,StudentInfo> 
                         .school(studentInfoParam.getSchool())
                         .className(studentInfoParam.getClassName())
                         .phoneNumber(studentInfoParam.getPhoneNumber())
-                        .identifyState(studentInfoParam.getIdentifyState())
-                        .identifyTeacherId(studentInfoParam.getIdentifyTeacherId())
+                        .identfyState(studentInfoParam.getIdentifyState())
+                        .identfyTeacherId(studentInfoParam.getIdentifyTeacherId())
                         .build();
                 studentInfoMapper.insert(studentInfo);
             }catch (Exception e){
@@ -49,6 +51,17 @@ public class StudentInfoImpl extends ServiceImpl<StudentInfoMapper,StudentInfo> 
             }
             return ResponseUtil.success(Boolean.TRUE);
         });
+    }
+
+
+    @Autowired
+    public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+        this.transactionTemplate = transactionTemplate;
+    }
+
+    @Autowired
+    public void setCbSlopeBaseMapper(StudentInfoMapper studentInfoMapper) {
+        this.studentInfoMapper = studentInfoMapper;
     }
 
 }

@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = DataSourceCommonProperties.DS, ignoreUnknownFields = false)
 public class DataSourceCommonProperties {
 	final static String DS = "spring.datasource.common-config";
- 
+
 	private int initialSize = 5;
 	private int minIdle;
 	private int maxActive = 20;

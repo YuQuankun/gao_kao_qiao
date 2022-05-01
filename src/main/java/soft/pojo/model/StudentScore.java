@@ -21,9 +21,9 @@ public class StudentScore {
     @TableId
     private Long id;
 
-    /** 关联学生信息外键 */
+    /** 关联学生信息uuid */
     @TableField
-    private Long guid;
+    private Long uuid;
 
     /** 分数1 */
     @TableField
@@ -48,6 +48,10 @@ public class StudentScore {
     /** 分数6 */
     @TableField
     private Integer score6;
+
+    /**学生类型 0-理科 1-文科*/
+    @TableField
+    private Integer studentType;
 
     /** 分数类型*/
     @TableField

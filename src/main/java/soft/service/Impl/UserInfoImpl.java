@@ -51,15 +51,17 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper,UserInfo> implement
     }
 
     @Override
-    public ApiResponse<UserInfo> getInfo(String openId) {
+    public ApiResponse<UserInfo> getInfo(Long uuid) {
         QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
-        wrapper.eq("user_id",openId);
+        wrapper.eq("id",uuid);
         return ResponseUtil.success(userInfoMapper.selectOne(wrapper));
     }
 
     @Override
-    public ApiResponse<Boolean> saveInfo(UserInfoParam userInfoParam){
+    public ApiResponse<Long> saveInfo(UserInfoParam userInfoParam){
+
         return transactionTemplate.execute(transactionStatus->{
+            Long uuid = 0L;
             try{
                 UserInfo userInfo = UserInfo.builder()
                         .userName(userInfoParam.getUserName())
@@ -70,12 +72,13 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper,UserInfo> implement
                         .logoUrl(userInfoParam.getLogoUrl())
                         .build();
                 userInfoMapper.insert(userInfo);
+                uuid = userInfo.getId();
             }catch (Exception e){
                 LOG.error("保存用户信息错误");
                 transactionStatus.setRollbackOnly();
-                return ResponseUtil.error(ErrorCode.DATA_INSERT_ERROR);
+                return ResponseUtil.error(DATA_INSERT_ERROR);
             }
-            return ResponseUtil.success(Boolean.TRUE);
+            return ResponseUtil.success(uuid);
         });
     }
 

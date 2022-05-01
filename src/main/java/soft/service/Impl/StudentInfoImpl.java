@@ -1,5 +1,6 @@
 package soft.service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,11 +34,11 @@ public class StudentInfoImpl extends ServiceImpl<StudentInfoMapper,StudentInfo> 
     }
 
     @Override
-    public ApiResponse<Long> saveStudentInfo(StudentInfoParam studentInfoParam) {
+    public ApiResponse<Boolean> saveStudentInfo(StudentInfoParam studentInfoParam) {
         return transactionTemplate.execute(transactionStatus->{
-            Long id = 0L;
             try{
                 StudentInfo studentInfo = StudentInfo.builder()
+                        .uuid(studentInfoParam.getUuid())
                         .name(studentInfoParam.getName())
                         .school(studentInfoParam.getSchool())
                         .className(studentInfoParam.getClassName())
@@ -46,20 +47,20 @@ public class StudentInfoImpl extends ServiceImpl<StudentInfoMapper,StudentInfo> 
                         .identfyTeacherId(studentInfoParam.getIdentifyTeacherId())
                         .build();
                 studentInfoMapper.insert(studentInfo);
-                id = studentInfo.getId();
             }catch (Exception e){
                 LOG.error("保存学生个人信息异常");
                 transactionStatus.setRollbackOnly();
                 return ResponseUtil.error(DATA_INSERT_ERROR);
             }
-            return ResponseUtil.success(id);
+            return ResponseUtil.success(Boolean.TRUE);
         });
     }
 
     @Override
-    public ApiResponse<StudentInfo> getStudentInfo(Integer id) {
-        StudentInfo studentInfo = this.baseMapper.selectById(id);
-        return ResponseUtil.success(this.baseMapper.selectById(id));
+    public ApiResponse<StudentInfo> getStudentInfo(Long uuid) {
+        QueryWrapper<StudentInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("uuid",uuid);
+        return ResponseUtil.success(this.baseMapper.selectOne(wrapper));
     }
 
 

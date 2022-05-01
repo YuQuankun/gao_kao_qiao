@@ -22,9 +22,9 @@ public class ParentInfo {
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    /** 关联学生信息外键 */
+    /** 用户uuid */
     @TableField
-    private Long guid;
+    private Long uuid;
 
     /** 姓名 */
     @TableField

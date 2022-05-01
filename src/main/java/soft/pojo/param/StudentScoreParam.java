@@ -16,7 +16,7 @@ public class StudentScoreParam {
     /** 关联学生信息外键 */
     @NotBlank
     @Schema(description = "关联学生信息外键",required = true)
-    private Long guid;
+    private Long uuid;
 
     /**  分数1*/
     @NotBlank
@@ -47,6 +47,11 @@ public class StudentScoreParam {
     @NotBlank
     @Schema(description = "分数6",required = true)
     private Integer score6;
+
+    /** 学生类型*/
+    @NotBlank
+    @Schema(description = "学生类型 0-理科 1-文科")
+    private Integer studentType;
 
     /**  分数类型*/
     @NotBlank

@@ -22,7 +22,7 @@ public class UserInfoParam {
     private String userName;
 
     @NotNull
-    @Schema(description = "用户类型 - 1大学教师 -2高中教师 -3学生 -4家长",required = true)
+    @Schema(description = "用户类型 1-大学教师 2-高中教师 3-学生 4-家长",required = true)
     private Integer userType;
 
     @NotNull

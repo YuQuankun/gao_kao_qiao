@@ -15,8 +15,8 @@ public class ParentInfoParam {
 
     /** 关联学生信息外键 */
     @NotBlank
-    @Schema(description = "关联学生信息外键",required = true)
-    private Long guid;
+    @Schema(description = "用户uuid",required = true)
+    private Long uuid;
 
     /**  姓名*/
     @NotBlank

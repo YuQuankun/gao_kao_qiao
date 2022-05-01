@@ -26,14 +26,14 @@ public interface IUserInfoService extends IService<UserInfo>{
      * @param userInfoParam
      * @return
      */
-    ApiResponse<Boolean> saveInfo(UserInfoParam userInfoParam);
+    ApiResponse<Long> saveInfo(UserInfoParam userInfoParam);
 
     /**
      * 根据OpenId获取用户个人信息
-     * @param openId
+     * @param uuid
      * @return
      */
-    ApiResponse<UserInfo> getInfo(String openId);
+    ApiResponse<UserInfo> getInfo(Long uuid);
 
 
 }

@@ -15,7 +15,7 @@ public interface IStudentInfoService extends IService<StudentInfo> {
      * @param studentInfoParam
      * @return
      */
-    ApiResponse<Long>  saveStudentInfo(StudentInfoParam studentInfoParam);
+    ApiResponse<Boolean>  saveStudentInfo(StudentInfoParam studentInfoParam);
 
 
     /**
@@ -23,5 +23,5 @@ public interface IStudentInfoService extends IService<StudentInfo> {
      * @param id
      * @return
      */
-    ApiResponse<StudentInfo> getStudentInfo(Integer id);
+    ApiResponse<StudentInfo> getStudentInfo(Long id);
 }

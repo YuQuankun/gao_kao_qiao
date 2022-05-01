@@ -34,7 +34,7 @@ public class LogInController {
     @Operation(description = "保存用户个人信息")
     @PostMapping(value = "/saveUserInfo")
     @ResponseBody
-    public ApiResponse<Boolean> saveUserInfo(@RequestBody @Validated UserInfoParam userInfoParam){
+    public ApiResponse<Long> saveUserInfo(@RequestBody @Validated UserInfoParam userInfoParam){
         return iUserInfoService.saveInfo(userInfoParam);
     }
 
@@ -42,7 +42,7 @@ public class LogInController {
     @Operation(description = "查询登陆用户账号密码等信息详情")
     @PostMapping(value = "/getInfo")
     @ResponseBody
-    public ApiResponse<UserInfo> getInfo(@RequestPostSingleParam String openId){
-        return iUserInfoService.getInfo(openId);
+    public ApiResponse<UserInfo> getInfo(@RequestPostSingleParam Long uuid){
+        return iUserInfoService.getInfo(uuid);
     }
 }

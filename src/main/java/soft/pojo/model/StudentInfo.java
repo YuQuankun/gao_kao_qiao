@@ -24,6 +24,10 @@ public class StudentInfo {
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    /** 用户uuid */
+    @TableField
+    private Long  uuid;
+
     /** 姓名 */
     @TableField
     private String name;

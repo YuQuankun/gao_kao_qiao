@@ -24,14 +24,14 @@ public class StudentInfoController {
     @Operation(description = "保存学生信息")
     @PostMapping(value = "/saveStudentInfo")
     @ResponseBody
-    public ApiResponse<Long> saveStudentInfo(@RequestBody @Validated StudentInfoParam studentInfoParam){
+    public ApiResponse<Boolean> saveStudentInfo(@RequestBody @Validated StudentInfoParam studentInfoParam){
         return iStudentInfoService.saveStudentInfo(studentInfoParam);
     }
 
     @Operation(description = "根据ID查询学生信息")
     @PostMapping(value = "/getStudentInfo")
     @ResponseBody
-    public ApiResponse<StudentInfo> getStudentInfo(@RequestPostSingleParam Integer id){
+    public ApiResponse<StudentInfo> getStudentInfo(@RequestPostSingleParam Long id){
         return iStudentInfoService.getStudentInfo(id);
     }
 }

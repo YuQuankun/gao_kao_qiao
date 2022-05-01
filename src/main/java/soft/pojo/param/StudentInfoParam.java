@@ -1,5 +1,6 @@
 package soft.pojo.param;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -16,6 +17,11 @@ public class StudentInfoParam {
     /** 主键*/
     @Schema(description = "主键",required = false)
     private Long id;
+
+    /** 用户uuid */
+    @NotNull
+    @Schema(description = "用户uuid",required = true)
+    private Long uuid;
 
     /** 姓名 */
     @NotBlank

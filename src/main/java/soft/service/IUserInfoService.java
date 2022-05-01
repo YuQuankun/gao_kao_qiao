@@ -4,6 +4,7 @@ package soft.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import soft.common.ApiResponse;
 import soft.pojo.model.UserInfo;
+import soft.pojo.param.UserInfoParam;
 
 import java.util.List;
 
@@ -21,15 +22,18 @@ public interface IUserInfoService extends IService<UserInfo>{
     ApiResponse<String> getOpenId(String code);
 
     /**
+     * 保存用户个人信息
+     * @param userInfoParam
+     * @return
+     */
+    ApiResponse<Boolean> saveInfo(UserInfoParam userInfoParam);
+
+    /**
      * 根据OpenId获取用户个人信息
      * @param openId
      * @return
      */
     ApiResponse<UserInfo> getInfo(String openId);
 
-    /***
-     * 保存信息
-     * @return
-     */
-    ApiResponse<Boolean> saveInfo();
+
 }

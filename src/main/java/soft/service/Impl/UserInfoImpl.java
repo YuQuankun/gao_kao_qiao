@@ -2,13 +2,18 @@ package soft.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.support.TransactionTemplate;
 import soft.common.ApiResponse;
 import soft.constant.ErrorCode;
+import soft.mapper.StudentInfoMapper;
 import soft.mapper.UserInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import soft.pojo.model.UserInfo;
+import soft.pojo.param.UserInfoParam;
 import soft.service.IUserInfoService;
 import soft.util.HttpRequestUtil;
 import soft.util.ResponseUtil;
@@ -20,6 +25,12 @@ import java.util.List;
  */
 @Service
 public class UserInfoImpl extends ServiceImpl<UserInfoMapper,UserInfo> implements IUserInfoService, ErrorCode  {
+
+    private static final Logger LOG = LoggerFactory.getLogger(UserInfoImpl.class);
+
+    private TransactionTemplate transactionTemplate;
+
+    private StudentInfoMapper studentInfoMapper;
 
     @Autowired
     private UserInfoMapper userInfoMapper;
@@ -47,7 +58,34 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper,UserInfo> implement
     }
 
     @Override
-    public ApiResponse<Boolean> saveInfo(){
-        return ResponseUtil.success();
+    public ApiResponse<Boolean> saveInfo(UserInfoParam userInfoParam){
+        return transactionTemplate.execute(transactionStatus->{
+            try{
+                UserInfo userInfo = UserInfo.builder()
+                        .userName(userInfoParam.getUserName())
+                        .userType(userInfoParam.getUserType())
+                        .userId(userInfoParam.getUserId())
+                        .account(userInfoParam.getAccount())
+                        .password(userInfoParam.getPassword())
+                        .logoUrl(userInfoParam.getLogoUrl())
+                        .build();
+                userInfoMapper.insert(userInfo);
+            }catch (Exception e){
+                LOG.error("保存用户信息错误");
+                transactionStatus.setRollbackOnly();
+                return ResponseUtil.error(ErrorCode.DATA_INSERT_ERROR);
+            }
+            return ResponseUtil.success(Boolean.TRUE);
+        });
+    }
+
+    @Autowired
+    public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+        this.transactionTemplate = transactionTemplate;
+    }
+
+    @Autowired
+    public void setCbSlopeBaseMapper(StudentInfoMapper studentInfoMapper) {
+        this.studentInfoMapper = studentInfoMapper;
     }
 }

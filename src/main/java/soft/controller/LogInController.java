@@ -1,15 +1,14 @@
 package soft.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 import soft.annotaion.RequestPostSingleParam;
 import soft.common.ApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import soft.pojo.model.UserInfo;
+import soft.pojo.param.UserInfoParam;
 import soft.service.IUserInfoService;
 import java.util.List;
 
@@ -26,11 +25,19 @@ public class LogInController {
 
 
     @Operation(description = "查询用户OpenId")
-        @PostMapping(value = "/getOpenId")
+    @PostMapping(value = "/getOpenId")
     @ResponseBody
     public ApiResponse<String> getOpenId(@RequestPostSingleParam String code){
         return iUserInfoService.getOpenId(code);
     }
+
+    @Operation(description = "保存用户个人信息")
+    @PostMapping(value = "/saveUserInfo")
+    @ResponseBody
+    public ApiResponse<Boolean> saveUserInfo(@RequestBody @Validated UserInfoParam userInfoParam){
+        return iUserInfoService.saveInfo(userInfoParam);
+    }
+
 
     @Operation(description = "查询登陆用户账号密码等信息详情")
     @PostMapping(value = "/getInfo")

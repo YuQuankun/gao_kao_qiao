@@ -4,10 +4,4 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="soft.mapper.UserInfoMapper">
 
-    <select id="selectInfo" resultType="soft.pojo.model.UserInfo">
-        select
-         *
-        FROM
-        user_info
-    </select>
 </mapper>

@@ -22,7 +22,7 @@ public class UserInfoParam {
     private String userName;
 
     @NotNull
-    @Schema(description = "用户类型",required = true)
+    @Schema(description = "用户类型 - 1大学教师 -2高中教师 -3学生 -4家长",required = true)
     private Integer userType;
 
     @NotNull
@@ -39,5 +39,5 @@ public class UserInfoParam {
 
     @NotNull
     @Schema(description = "头像图片存储地址",required = true)
-    private Integer logoUrl;
+    private String logoUrl;
 }

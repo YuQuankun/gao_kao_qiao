@@ -21,10 +21,11 @@ public interface IUserInfoService extends IService<UserInfo>{
     ApiResponse<String> getOpenId(String code);
 
     /**
-     * 获取用户信息
+     * 根据OpenId获取用户个人信息
+     * @param openId
      * @return
      */
-    ApiResponse<List<UserInfo>> getInfo();
+    ApiResponse<UserInfo> getInfo(String openId);
 
     /***
      * 保存信息

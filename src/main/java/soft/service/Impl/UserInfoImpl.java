@@ -1,9 +1,9 @@
 package soft.service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 import soft.common.ApiResponse;
 import soft.constant.ErrorCode;
 import soft.mapper.UserInfoMapper;
@@ -33,7 +33,6 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper,UserInfo> implement
     @Value("${app.secret}")
     private String appSecret;
 
-    private String code;
 
     @Override
     public ApiResponse<String> getOpenId(String code) {
@@ -41,8 +40,10 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper,UserInfo> implement
     }
 
     @Override
-    public ApiResponse<List<UserInfo>> getInfo() {
-        return ResponseUtil.success(userInfoMapper.selectInfo());
+    public ApiResponse<UserInfo> getInfo(String openId) {
+        QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("user_id",openId);
+        return ResponseUtil.success(userInfoMapper.selectOne(wrapper));
     }
 
     @Override

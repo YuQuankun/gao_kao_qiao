@@ -16,5 +16,5 @@ public interface UserInfoMapper extends BaseMapper<UserInfo>{
      *
      * @return
      */
-    List<UserInfo> selectInfo();
+    UserInfo selectInfo();
 }

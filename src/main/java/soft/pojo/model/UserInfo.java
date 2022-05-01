@@ -29,9 +29,9 @@ public class UserInfo {
     @TableField
     private Integer userType;
 
-    /** 用户Id 用于关联明细表 */
+    /** 用户OpenId,唯一标识符  */
     @TableField
-    private Long userId;
+    private String  userId;
 
     /** 用户账号 */
     @TableField

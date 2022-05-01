@@ -32,11 +32,10 @@ public class LogInController {
         return iUserInfoService.getOpenId(code);
     }
 
-
     @Operation(description = "查询登陆用户账号密码等信息详情")
-    @GetMapping(value = "/getInfo")
+    @PostMapping(value = "/getInfo")
     @ResponseBody
-    public ApiResponse<List<UserInfo>> getInfo(){
-        return iUserInfoService.getInfo();
+    public ApiResponse<UserInfo> getInfo(@RequestPostSingleParam String openId){
+        return iUserInfoService.getInfo(openId);
     }
 }

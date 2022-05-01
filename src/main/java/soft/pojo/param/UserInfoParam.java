@@ -26,8 +26,8 @@ public class UserInfoParam {
     private Integer userType;
 
     @NotNull
-    @Schema(description = "用户id",required = true)
-    private Integer userId;
+    @Schema(description = "用户openId",required = true)
+    private String userId;
 
     @NotBlank
     @Schema(description = "账号",required = true)

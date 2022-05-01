@@ -13,6 +13,7 @@ import soft.pojo.model.StudentInfo;
 import soft.pojo.param.StudentInfoParam;
 import soft.service.IStudentInfoService;
 import soft.util.ResponseUtil;
+import sun.rmi.runtime.Log;
 
 /**
  * @author kun_mi
@@ -32,8 +33,9 @@ public class StudentInfoImpl extends ServiceImpl<StudentInfoMapper,StudentInfo> 
     }
 
     @Override
-    public ApiResponse<Boolean> saveStudentInfo(StudentInfoParam studentInfoParam) {
+    public ApiResponse<Long> saveStudentInfo(StudentInfoParam studentInfoParam) {
         return transactionTemplate.execute(transactionStatus->{
+            Long id = 0L;
             try{
                 StudentInfo studentInfo = StudentInfo.builder()
                         .name(studentInfoParam.getName())
@@ -44,13 +46,20 @@ public class StudentInfoImpl extends ServiceImpl<StudentInfoMapper,StudentInfo> 
                         .identfyTeacherId(studentInfoParam.getIdentifyTeacherId())
                         .build();
                 studentInfoMapper.insert(studentInfo);
+                id = studentInfo.getId();
             }catch (Exception e){
                 LOG.error("保存学生个人信息异常");
                 transactionStatus.setRollbackOnly();
                 return ResponseUtil.error(DATA_INSERT_ERROR);
             }
-            return ResponseUtil.success(Boolean.TRUE);
+            return ResponseUtil.success(id);
         });
+    }
+
+    @Override
+    public ApiResponse<StudentInfo> getStudentInfo(Integer id) {
+        StudentInfo studentInfo = this.baseMapper.selectById(id);
+        return ResponseUtil.success(this.baseMapper.selectById(id));
     }
 
 

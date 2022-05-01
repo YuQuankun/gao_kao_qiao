@@ -15,5 +15,13 @@ public interface IStudentInfoService extends IService<StudentInfo> {
      * @param studentInfoParam
      * @return
      */
-    ApiResponse<Boolean>  saveStudentInfo(StudentInfoParam studentInfoParam);
+    ApiResponse<Long>  saveStudentInfo(StudentInfoParam studentInfoParam);
+
+
+    /**
+     * 根据ID查询学生详细信息
+     * @param id
+     * @return
+     */
+    ApiResponse<StudentInfo> getStudentInfo(Integer id);
 }

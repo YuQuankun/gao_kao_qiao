@@ -13,7 +13,13 @@ import java.util.List;
 
 public interface IUserInfoService extends IService<UserInfo>{
 
-    //
+    /**
+     * 根据Code获取用户OpenId
+     * @param code
+     * @return
+     */
+    ApiResponse<String> getOpenId(String code);
+
     /**
      * 获取用户信息
      * @return

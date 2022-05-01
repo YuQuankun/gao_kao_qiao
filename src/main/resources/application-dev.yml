@@ -3,6 +3,10 @@ server:
   servlet:
     context-path: /gaokaoqiao
 
+app:
+  appId: wxfc2e0db7b096e695
+  secret: 8d769af8acf8b9e7edfba3b74789fcc3
+
 spring:
   messages:
     basename: exception/error_code

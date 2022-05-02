@@ -1,5 +1,6 @@
 package soft.service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,8 @@ import soft.pojo.param.StudentScoreParam;
 import soft.service.IStudentScoreService;
 import soft.util.ResponseUtil;
 
+import java.util.List;
+
 /**
  * @author kun_mi
  */
@@ -25,6 +28,13 @@ public class StudentScoreImpl extends ServiceImpl<StudentScoreMapper, StudentSco
     private TransactionTemplate transactionTemplate;
 
     private StudentScoreMapper studentScoreMapper;
+
+    @Override
+    public ApiResponse<List<StudentScore>> getScore(Long uuid) {
+        QueryWrapper<StudentScore> wrapper = new QueryWrapper<>();
+        wrapper.eq("uuid",uuid);
+        return ResponseUtil.success(studentScoreMapper.selectList(wrapper));
+    }
 
     @Override
     public ApiResponse<Boolean> saveScore(StudentScoreParam studentScoreParam) {

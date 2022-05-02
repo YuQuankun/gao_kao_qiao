@@ -1,8 +1,3 @@
-server:
-  port: 8082
-  servlet:
-    context-path: /back-end
-
 spring:
   profiles.active: dev
   application.name: idig-back-end
@@ -16,8 +11,8 @@ spring:
 logging:
   config: classpath:logback-spring.xml
 
-mybatis:
-  mapper-locations: ["classpath:mapper/**/*.xml", "classpath*:mapper/security/*.xml"]
+mybatis-plus:
+  mapper-locations: ["classpath:mapper/*.xml", "classpath*:mapper/security/*.xml","classpath:mybatis-plus/mapper/*.xml"]
   configuration:
     cache-enabled: false
     map-underscore-to-camel-case: true

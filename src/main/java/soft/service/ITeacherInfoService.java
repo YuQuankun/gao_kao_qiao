@@ -17,4 +17,11 @@ public interface ITeacherInfoService extends IService<TeacherInfo> {
      */
     ApiResponse<Boolean> saveTeacherInfo(TeacherInfoParam teacherInfoParam);
 
+    /**
+     * 根据uuid获取教师信息
+     * @param uuid
+     * @return
+     */
+    ApiResponse<TeacherInfo> getTeacherInfo(Long uuid);
+
 }

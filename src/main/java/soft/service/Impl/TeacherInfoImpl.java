@@ -1,5 +1,6 @@
 package soft.service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,6 +50,13 @@ public class TeacherInfoImpl extends ServiceImpl<TeacherInfoMapper, TeacherInfo>
             }
             return ResponseUtil.success(Boolean.TRUE);
         });
+    }
+
+    @Override
+    public ApiResponse<TeacherInfo> getTeacherInfo(Long uuid) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("uuid", uuid);
+        return ResponseUtil.success(teacherInfoMapper.selectOne(wrapper));
     }
 
     @Autowired

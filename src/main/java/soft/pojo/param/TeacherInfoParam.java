@@ -18,42 +18,42 @@ public class TeacherInfoParam {
     private Long id;
 
     /** uuid */
-    @NotBlank
+    @NotNull
     @Schema(description = "用户uuid" , required = true)
     private Long uuid;
 
     /** 姓名 */
-    @NotNull
+    @NotBlank
     @Schema(description = "教师姓名" , required = true)
     private String name;
 
     /** 学校 */
-    @NotNull
+    @NotBlank
     @Schema(description = "教师所在学校" , required = true)
     private String school;
 
     /** 学院 */
-    @NotNull
+    @NotBlank
     @Schema(description = "教师所在学院名称", required = true)
     private String faculty;
 
     /** 电话 */
-    @NotNull
+    @NotBlank
     @Schema(description = "教师电话", required = true)
     private String phoneNumber;
 
     /** 职称*/
-    @NotNull
+    @NotBlank
     @Schema(description = "教师职称",required = true)
     private String professional;
 
     /** 职务*/
-    @NotNull
+    @NotBlank
     @Schema(description = "教师职务",required = true)
     private String occupation;
 
     /** 教师类型*/
-    @NotNull
+    @NotBlank
     @Schema(description = "教师类型 大学教师or高中教师")
     private String teacherType;
 }

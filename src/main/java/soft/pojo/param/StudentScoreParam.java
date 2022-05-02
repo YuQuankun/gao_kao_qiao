@@ -56,5 +56,5 @@ public class StudentScoreParam {
     /**  分数类型*/
     @NotBlank
     @Schema(description = "分数类型",required = true)
-    private Integer scoreType;
+    private String scoreType;
 }

@@ -33,6 +33,10 @@ public class UserInfo {
     @TableField
     private String  userId;
 
+    /** 用户性别*/
+    @TableField
+    private Integer gender;
+
     /** 用户账号 */
     @TableField
     private String account;

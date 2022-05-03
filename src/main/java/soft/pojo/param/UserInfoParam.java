@@ -30,6 +30,10 @@ public class UserInfoParam {
     private String userId;
 
     @NotBlank
+    @Schema(description = "用户性别",required = true)
+    private Integer gender;
+
+    @NotBlank
     @Schema(description = "账号",required = true)
     private String account;
 

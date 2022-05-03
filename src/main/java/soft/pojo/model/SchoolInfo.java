@@ -1,4 +1,5 @@
 package soft.pojo.model;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -10,6 +11,9 @@ import sun.util.resources.ga.LocaleNames_ga;
 
 import java.util.List;
 
+/**
+ * @author kun_mi
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -18,7 +22,7 @@ import java.util.List;
 public class SchoolInfo {
 
     /** 主键*/
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /** 姓名 */

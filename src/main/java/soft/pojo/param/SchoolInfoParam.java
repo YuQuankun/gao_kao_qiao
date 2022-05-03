@@ -6,6 +6,9 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+/**
+ * @author kun_mi
+ */
 @Data
 public class SchoolInfoParam{
 
@@ -19,7 +22,7 @@ public class SchoolInfoParam{
     private String name;
 
     /**  最低分数线*/
-    @NotBlank
+    @NotNull
     @Schema(description = "最低分数线",required = true)
     private Integer minScore;
 

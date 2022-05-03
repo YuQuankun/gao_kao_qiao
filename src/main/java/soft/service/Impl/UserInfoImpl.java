@@ -67,6 +67,7 @@ public class UserInfoImpl extends ServiceImpl<UserInfoMapper,UserInfo> implement
                         .userName(userInfoParam.getUserName())
                         .userType(userInfoParam.getUserType())
                         .userId(userInfoParam.getUserId())
+                        .gender(userInfoParam.getGender())
                         .account(userInfoParam.getAccount())
                         .password(userInfoParam.getPassword())
                         .logoUrl(userInfoParam.getLogoUrl())

@@ -13,10 +13,15 @@ public class ParentInfoParam {
     @Schema(description = "主键",required = false)
     private Long id;
 
-    /** 关联学生信息外键 */
-    @NotBlank
+    /**  用户uuid值 */
+    @NotNull
     @Schema(description = "用户uuid",required = true)
     private Long uuid;
+
+    /** 关联学生uuid*/
+    @Schema(description = "学生uuid",required = true)
+    @NotNull
+    private Long studentUuid;
 
     /**  姓名*/
     @NotBlank

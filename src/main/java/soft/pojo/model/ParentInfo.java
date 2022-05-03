@@ -26,6 +26,10 @@ public class ParentInfo {
     @TableField
     private Long uuid;
 
+    /** 关联学生uuid */
+    @TableField
+    private Long studentUuid;
+
     /** 姓名 */
     @TableField
     private String name;

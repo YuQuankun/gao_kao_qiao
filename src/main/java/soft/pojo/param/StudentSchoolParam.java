@@ -14,12 +14,12 @@ public class StudentSchoolParam{
     private Long id;
 
     /** 关联学生信息外键*/
-    @NotBlank
+    @NotNull
     @Schema(description = "关联学生信息外键",required = true)
-    private Long studengId;
+    private Long studentId;
 
     /**  意向学校名*/
     @NotBlank
     @Schema(description = "意向学校名",required = true)
-    private String schoolNme;
+    private String schoolName;
 }
